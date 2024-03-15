@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import worldMapSVG from "./assets/world.svg"; // Arquivo SVG do mapa
+import { Flex } from "@chakra-ui/react";
 
 const countries = [
   "Brazil",
@@ -47,9 +48,14 @@ export const App = () => {
   }, [mapData]);
 
   return (
-    <div>
+    <Flex h="100vh" justifyContent="center">
       {mapData && (
-        <div style={{ border: "2px solid blue" }}>
+        <Flex
+          border="2px solid blue"
+          margin="0 auto"
+          justifyContent="center"
+          alignItems="center"
+        >
           <svg
             ref={svgRef}
             xmlns="http://www.w3.org/2000/svg"
@@ -58,8 +64,8 @@ export const App = () => {
             viewBox="0 0 2000 857"
             dangerouslySetInnerHTML={{ __html: mapData }} // Renderize o SVG
           />
-        </div>
+        </Flex>
       )}
-    </div>
+    </Flex>
   );
 };
