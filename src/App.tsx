@@ -17,7 +17,7 @@ export const App = () => {
 
   useEffect(() => {
     // Carregar dados do mapa
-    fetch(worldMapSVG) // Use o arquivo SVG importado
+    fetch(worldMapSVG) // arquivo SVG importado
       .then((response) => response.text())
       .then((mapData) => {
         setMapData(mapData);
