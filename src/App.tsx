@@ -2,14 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import worldMapSVG from "./assets/world.svg"; // Arquivo SVG do mapa
 import { Flex } from "@chakra-ui/react";
 
-const countries = [
-  "Brazil",
-  "Argentina",
-  "United States",
-  "Angola",
-  "China",
-  "Australia",
-];
+const countries = ["BR", "AU", "CA", "CN", "IT", "JP", "RU"];
 
 export const App = () => {
   const [mapData, setMapData] = useState<string | null>(null);
@@ -34,10 +27,12 @@ export const App = () => {
       svgPaths.forEach((path) => {
         const countryClass = path.getAttribute("class") ?? "";
         const countryName = path.getAttribute("name") ?? "";
+        const countryId = path.getAttribute("id") ?? "";
 
         if (
           countries.includes(countryClass) ||
-          countries.includes(countryName)
+          countries.includes(countryName) ||
+          countries.includes(countryId)
         ) {
           path.style.fill = "#78CEDC"; // Estilizar os países com a classe ou nome desejado
         }
